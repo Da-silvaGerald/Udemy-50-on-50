@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+/* Styling the body */
+body{
+    font-family:'Lato', sans-serif;
+    background-color: #333;
+    color: #222;
+    overflow-x: hidden;
+    margin: 0;
+}
+/* Styling the container */
+.container {
+    background-color: #fafafa;
+    transform-origin: top left;
+    transition: transform 0.5s linear;
+    width: 100vw;
+    min-height: 100vh;
+    padding: 50px;
+}
+/* rotating the container(page) when it has show-nav */
+.container.show-nav {
+    transform: rotate(-20deg);
+}
+/* Also rotating the circle with the above container(page) */
+.container.show-nav .circle {
+    transform: rotate(-70deg);
+}
+/* creating the circle position */
+.circle-container{
+    position: fixed;
+    top:-100px;
+    left:-100px;
+}
+/* creating the circle itself */
+.circle{
+    background-color: #ff7979;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    position:relative;
+    transition: transform 0.5s linear;
+}
+/* Creating the button that will be on the circle */
+.circle button {
+    cursor: pointer;
+    position:absolute;
+    top:50%;
+    left:50%;
+    height: 100px;
+    background: transparent;
+    border:0;
+    font-size: 26px;
+    color: #fff;
+}
+/* When the button is in focus, i.e when the curso is hovering above it */
+.circle button:focus{
+    outline: none;
+}
+/* Positioning the open button */
+.circle button#open{
+    left: 60%;
+}
+/* positioning the close button */
+.circle button#close{
+    top: 60%;
+    transform: rotate(90deg);
+    transform-origin:top left ;
+}
+/* To bring in the 3 navigation panels when the container(page) rotates */
+.container.show-nav + nav li{
+    transform: translateX(0);
+    transition-delay: 0.3s;
+}
+/* Positioning the navigation panels */
+nav{
+    position: fixed;
+    bottom: 0px;
+    left: 0;
+    z-index: 100;
+}
+/* Styling the nanigation panels */
+nav ul{
+    font-size: 15px;
+    list-style: none;
+    padding-left: 20px;
+}
+/* Styling the navigation fonts */
+nav ul li{
+    text-transform: uppercase;
+    color: #fff;
+    margin: 30px 0;
+    transform: translateX(-100%);
+    transition: transform 0.4s ease-in;
+}
+/* Styling the navigation panel icons */
+nav ul li i{
+    font-size: 20px;
+    margin-right: 10px;
+}
+/* To protrude the second panel farther*/
+nav ul li + li {
+    margin-left: 15px;
+    transform: translateX(-150%);
+}
+/* to protrude the third panel farthest */
+nav ul li + li + li {
+    margin-left: 30px;
+    transform: translateX(-200%);
+}
+/* to ensure the image is sized */
+.content img{
+    max-width:100%;
+}
+/* positioning the page and designing for maximize and minimize */
+.content{
+    max-width: 1000px;
+    margin:50px auto;    
+}
+/* to remove any margin from the first heading */
+.content h1{
+    margin: 0;
+}
+/* Styling the author name(small class) */
+.content small{
+    color: #555;
+    font-style: italic;
+}
+/* Styling the paragraphs */
+.content p{
+    color:#333;
+    line-height: 1.5;
+}
